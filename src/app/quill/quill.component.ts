@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import Quill from 'quill';
 import DragDropBlot from './custom-drag-drop-module';
+import Div from './Div';
 
 @Component({
   selector: 'app-editor',
@@ -16,6 +17,7 @@ export class EditorComponent implements OnInit {
   ngOnInit() {
 
     Quill.register(DragDropBlot); 
+    Quill.register(Div)
 
     if (this.editorElement) {
       this.quill = new Quill(this.editorElement.nativeElement, {
