@@ -1,17 +1,25 @@
 import Quill from 'quill';
 
-const Block:any = Quill.import('blots/block');
+const isRegistered = Quill.imports['formats/Ayush-div'] !== undefined;
 
-class Div extends Block {
-  static blotName = 'Ayush-div';
-  static tagName = 'div';
+let Div: any;
 
-  static create(value) {
-    const node = super.create(value);
-    return node;
-  }
+if (!isRegistered) {
+  const Block:any = Quill.import('blots/block');
+
+  Div = class Div extends Block {
+    static blotName = 'Ayush-div';
+    static tagName = 'div';
+
+    static create(value) {
+      const node = super.create(value);
+      return node;
+    }
+  };
+
+  Quill.register(Div);
+} else {
+  Div = Quill.imports['formats/Ayush-div'];
 }
-
-Quill.register(Div);
 
 export default Div;

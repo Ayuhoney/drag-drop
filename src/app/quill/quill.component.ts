@@ -15,9 +15,11 @@ export class EditorComponent implements OnInit {
   public quill: Quill;
   
   ngOnInit() {
-
     Quill.register(DragDropBlot); 
-    Quill.register(Div)
+
+    if (!Quill.imports['formats/Ayush-div']) {
+      Quill.register(Div);
+    }
 
     if (this.editorElement) {
       this.quill = new Quill(this.editorElement.nativeElement, {
