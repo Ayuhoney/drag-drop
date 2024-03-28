@@ -2,14 +2,16 @@ import Quill from 'quill';
 
 const Block:any = Quill.import('blots/block');
 
-export default class Div extends Block {
-  static blotName = 'div1'; 
+class Div extends Block {
+  static blotName = 'Ayush-div';
   static tagName = 'div';
 
-  static create(value: any) {
-    const node = super.create(value) as HTMLElement;
+  static create(value) {
+    const node = super.create(value);
     return node;
   }
 }
 
 Quill.register(Div);
+
+export default Div;
