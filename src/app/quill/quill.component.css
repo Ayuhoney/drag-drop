@@ -1,0 +1,11 @@
+.editor-container {
+  border: 1px solid #1d7b63;
+  padding: 10px;
+}
+
+.editor p {
+  margin: 0;
+  padding: 5px;
+  border: 1px solid #eee;
+  cursor: pointer; /* Optional: Show pointer cursor on paragraphs */
+}
